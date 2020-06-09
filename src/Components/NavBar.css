@@ -32,3 +32,9 @@ li
     text-align: center;
     width:100px;
 }
+.login-bar a{
+    text-decoration: none;
+}
+.navi-a{
+    padding-left: 25%;
+}

@@ -1,7 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Redirect} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 // import './App.css';
 import NavBar from './Components/NavBar';
 import HomePage from './Components/HomePage';
@@ -12,6 +11,7 @@ import Shopping from './Components/Shopping';
 import UserEdit from './Components/User-Edit';
 import CreatePost from './Components/CreatePost';
 import BlogPage from './Components/BlogPage';
+import ProductScreen from './Components/Products';
 
 
 function App(){
@@ -19,7 +19,8 @@ function App(){
     <Router>
       <NavBar />
       <React.Fragment>
-        <div className="container">
+        {/* <div className="container"> */}
+        <div>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/register" component={RegisterPage} />
@@ -28,34 +29,10 @@ function App(){
           <PrivateRoute exact path="/edit" component={UserEdit} />
           <Route exact path="/shopping" component={Shopping} />
           <Route exact path="/post" component={CreatePost} />
+          <Route exact path="/product/:id" component={ProductScreen} />
         </div>
       </React.Fragment>
     </Router>
-    // <Router>
-    // {/* <NavBar /> */}
-    // <div className="container">
-    //   <NavBar />
-    //     {/* <Switch> */}
-    //   <br />  
-    //   <React.Fragment>
-    //       {/* <Route exact path={"/"} component={HomePage} />
-    //       <Route exact path={"/login"} component={LoginPage} />
-    //       <Route exact path={"/edit"} component={UserEdit} />
-    //       <Route exact path={"/register"} component={RegisterPage} />
-    //       <Route excat path={"/community"} component={Community} />
-    //       <Route excat path={"/shopping"} component={Shopping} /> */}
-    //       <Route path="/" exact component={HomePage} />
-    //       <Route path="/login" component={LoginPage} />
-    //       <Route path="/register" component={RegisterPage} />
-    //       <Route path="/community" component={Community} />
-    //       <PrivateRoute path="/edit/:id" component={UserEdit} />
-    //       <PrivateRoute path="/post" component={CreatePost} />
-    //       <Route path="/shopping" component={Shopping} />
-    //     {/* </Switch> */}
-    //   </React.Fragment>
-    // </div>
-    // </Router>
-
   );
 }
 
@@ -75,26 +52,5 @@ function PrivateRoute({ component: Component, ...rest }) {
     />
   );
 }
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
 
 export default App;
