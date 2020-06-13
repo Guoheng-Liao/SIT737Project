@@ -44,12 +44,13 @@ export default class NavBar extends Component {
                     </div>
                 </div>
             </nav> */}
-                <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
                 <div className="login-bar">
-                    <span className="title">
-                        <Link to="/" className="nav-brand">Game Player Zoon</Link>
-                    </span>
+                <span className="title">
+                <Link to="/" className="nav-brand">Game Player Zoon</Link>
+                </span>
                 </div>
+                <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
+
                 <div className="A collpase navbar-collapse">
                     <ul className="navbar-nav mr-auto">
                         <li className="navbar-item">
@@ -97,3 +98,8 @@ export default class NavBar extends Component {
         );
     }
 }
+const Options = {
+  textDecoration: "none",
+  marginRight: "4px",
+  color: "#dfe3e6",
+};
