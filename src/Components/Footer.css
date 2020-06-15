@@ -1,9 +1,11 @@
 .footer-distributed{
-	background-color: #555;
+	background-color: #292c2f;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 100%;
 	text-align: left;
 	font: normal 16px sans-serif;
+
 	padding: 45px 50px;
 	margin-top: 80px;
 }
@@ -15,7 +17,9 @@
 }
 
 /* Footer links */
-
+.footer{
+    margin-top: 1rem;
+}
 .footer-distributed p.footer-links{
 	font-size:18px;
 	font-weight: bold;
@@ -41,7 +45,7 @@
 	display: inline-block;
 	width: 35px;
 	height: 35px;
-	background-color:  #555;
+	background-color:  #33383b;
 	border-radius: 2px;
 
 	font-size: 20px;
@@ -51,9 +55,59 @@
 
 	margin-left: 3px;
 }
+.fblogo{
+    max-height: 100%;
+    max-width: 100%;
+}
+.twitterlogo {
+    max-height: 100%;
+    max-width: 100%;
+}
+.emaillogo{
+    max-height: 100%;
+    max-width: 100%;
+}
+.coyp-right{
+    text-align: center;
+}
+.footer-content{
+    text-align: center;
+}
 
-.const socialMediaDiv {
-    width:30%;
-    float:right;
-    box-sizing:border-box;
-  }
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 400px) {
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-right{
+		text-align: center;
+	}
+
+	.footer-distributed .footer-left p.footer-links{
+		line-height: 1.8;
+		font-size: 12px;
+	}
+	.footer-distributed .footer-left p{
+		color:  #8f9296;
+		font-size: 4px;
+		margin: 0;
+	}
+	.footer-distributed p.footer-links{
+		color:  #ffffff;	
+	}
+}
+@media screen and (min-width:400px) and (max-width:500px){
+	.footer-distributed .footer-left p.footer-links{
+		line-height: 1.8;
+		font-size: 17px;
+	}
+	.footer-distributed .footer-left p{
+		color:  #8f9296;
+		font-size: 13.5px;
+		margin: 0;
+	}
+	.footer-distributed p.footer-links{
+		color:  #ffffff;
+		
+	}
+}

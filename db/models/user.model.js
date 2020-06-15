@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const bcrypt = require('bcrypt');  //if is no working, delete that. otherwids using it.
+const bcrypt = require('bcrypt');  
 
 const Schema = mongoose.Schema;
 
@@ -9,8 +9,6 @@ const userSchema = new Schema({
         type: String,
         required: true,
         unique: true,
-        // trim: true,
-        // minlength: 3
         default: ''
     },
     password: {
@@ -18,10 +16,6 @@ const userSchema = new Schema({
         required: true,
         default: ''
     },
-    // password_confirmation: {
-    //     type: String,
-    //     required: true
-    // },
     FirstName: {
         type: String,
     },
@@ -31,9 +25,13 @@ const userSchema = new Schema({
     birthday: {
         type: String
     },
+    isAdmin: {
+        type: Boolean, 
+        default: false
+    },
     isDeleted: {
         type: Boolean,
-        default: false    //if it would be getted the erro, delete this part 'isDeletd'
+        default: false
     }, 
     signUpDate: {
         type: Date, 
@@ -43,7 +41,6 @@ const userSchema = new Schema({
     timestamps: true,
 });
 
-// manbey need to change ??
 userSchema.methods.generateHash = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
@@ -51,15 +48,6 @@ userSchema.methods.generateHash = function(password) {
 userSchema.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
 };
-
-// userSchema.methods.generateHash = function(password_confirmation) {
-//     return bcrypt.hashSync(password_confirmation, bcrypt.genSaltSync(8), null);
-// };
-
-// userSchema.methods.validPassword = function(password_confirmation) {
-//     return bcrypt.compareSync(password_confirmation, this.password_confirmation);
-// };
-
 
 const User = mongoose.model('User', userSchema);
 

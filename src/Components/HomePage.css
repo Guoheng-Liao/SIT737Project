@@ -1,5 +1,28 @@
 .title {
-    font-Size:50px;
     text-align-last: center;
     color:black;
+}
+.image1{
+    text-align: center;
+}
+.image2{
+    text-align: center;
+}
+.image3{
+    text-align: center;
+}
+.image1 img{
+    margin: 0 auto;
+    height: 30rem;
+    width: 100rem; 
+}
+.image2 img{
+    margin: 0 auto;
+    height: 30rem;
+    width: 100rem; 
+}
+.image3 img{
+    margin: 0 auto;
+    height: 30rem;
+    width: 100rem; 
 }

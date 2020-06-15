@@ -2,16 +2,11 @@
     font-size: 25px;
     font-weight: bold;
 }
-
 .navbar-nav {
-    /* flex-sm-row */
     flex-direction: row;
-
-    /* display: inline; */
 }
  
 .A{
-    /* justify-content: center;*/
     height: 40px; 
     display:table-cell;
     text-align:center;
@@ -31,4 +26,10 @@ li
 {
     text-align: center;
     width:100px;
+}
+.login-bar a{
+    text-decoration: none;
+}
+.navi-a{
+    padding-left: 25%;
 }

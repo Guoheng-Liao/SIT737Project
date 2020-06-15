@@ -1,21 +1,15 @@
 import React, { Component } from 'react';
-// import imgURL from './image1.jpg';
 import './Footer.css';
-
-
-
-
-
-
+import './HomePage.css';
 
 export default class HomePage extends Component {
-    render() {
-        return (
+    render(){
+        return(
             <React.Fragment>
                 <div>
                     <h1 style={headStyle}>Welcome to Game Player Zone</h1><br />
-                    <div class="image1.jpg">
-                        < img src={require('./image1.jpg')} height='350px' width='100%' />
+                    <div className="image1">
+                        < img src={require('../images/image1.jpg')} alt='' />
                     </div>
 
 
@@ -35,8 +29,8 @@ export default class HomePage extends Component {
                         </div>
                     </div>
 
-                    <div class="image2.jpg">
-                        < img src={require('./image2.jpg')} height='300px' width='100%' />
+                    <div className="image2">
+                        < img src={require('../images/image2.jpg')} height='300px' width='100%' alt='' />
                     </div>
 
                     <h2 style={headStyle}>Game News</h2><br />
@@ -56,33 +50,14 @@ export default class HomePage extends Component {
                             </p>
                         </div>
                     </div>
-                    <div class="image3.jpg">
-                        < img src={require('./image3.jpg')} height='300px' width='100%' />
+                    <div className="image3">
+                        < img src={require('../images/image3.jpg')} height='300px' width='100%' alt="" />
                     </div>
                 </div>
-
-                <div class="footer">
-                    <footer class="footer-distributed">
-                        <div class="footer-right">
-                            <a href="http://www.facebook.com/sharer/sharer.php?u=&lt;URL&gt;"><i class="fa fa-facebook"></i></a>
-
-                            <a href="http://twitter.com/share?url=&lt;URL&gt;&amp;text=&lt;TEXT&gt;&amp;via=&lt;VIA&gt;"><i class="fa fa-twitter"></i></a>
-                            <a href="mailto:?subject=&lt;SUBJECT&amp;body=&lt;BODY&gt;"><i class="fa fa-mail-forward"></i></a></div>
-                        <div class="footer-left">
-                            <p class="footer-links"><a href="#">Back to Top</a></p>
-                            <p>Game Player Zone © 2020</p>
-                        </div>
-                    </footer>
-                </div>
-
-
             </React.Fragment>
         );
     }
-
 }
-
-
 
 const headStyle = {
     textAlign: 'center',
@@ -98,7 +73,3 @@ const divStyle = {
     padding: '50px 80px',
     textAlign: 'justify'
 }
-
-
-
-
