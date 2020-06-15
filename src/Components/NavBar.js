@@ -1,99 +1,105 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './NavBar.css';
+import { useSelector } from 'react-redux';
 
-export default class NavBar extends Component {
-    logout (e){
-        localStorage.removeItem("token");
-        localStorage.removeItem("name");
-        window.location.href = "/login"
-        e.preventDefault();
-    }
+// export default class NavBar extends Component {
+export default function LoginPage(props) {
 
-    
-    render(){
+    const userLogin = useSelector(state => state.userLogin);
+    const {userInfo} = userLogin;
+
         return(
-            <React.Fragment>
-            {/* <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
+            <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
                 <div className="login-bar">
                     <span className="title">
                         <Link to="/" className="nav-brand">Game Player Zoon</Link>
                     </span>
                 </div>
-                <div>
-                <Link to="/login" className="nav-bar">Login</Link> |
-                <Link to="/register" className="nav-bar"> Register</Link> | */}
-                {/* <Link to="/edit" className="nav-bar"> User Edit</Link> */}
-                {/* </div>
-                <div className="A collpase navbar-collapse">
-                    <div className="a">
+                <div className="A collpase navbar-collapse navi-a">
                     <ul className="navbar-nav mr-auto">
                         <li className="navbar-item">
-                        <Link to="/" className="nav-link">Home</Link>
+                            <Link to="/" className="nav-link">Home</Link>
                         </li>
                         <li className="navbar-item">
-                        <Link to="/community" className="nav-link">Community</Link>
+                            <Link to="/community" className="nav-link">Community</Link>
                         </li>
-                        <li>
+                        <li className="navbar-item">
+                            <Link to="/shopping" className="nav-link">Shopping</Link>
+                        </li>
+                    </ul>
+                    {/* <ul align="right" className="navbar-nav">
+                        <li className="navbar-item">
                             <Link to="/Post" className="nav-link">Post</Link>
                         </li>
                         <li className="navbar-item">
-                        <Link to="/shopping" className="nav-link">Shopping</Link>
-                        </li> 
+                            <Link to="/edit" className="nav-link">Edit</Link>
+                        </li>
+                        <li className="navbar-item">
+                            <Link to="/" className="nav-link" onClick={(event) => this.logout(event)}>{localStorage.getItem("name")}Logout</Link>
+                        </li>
+                    </ul> */}
+                    <ul align="right" className="navbar-nav">
+                        <li className="navbar-item login-btn">
+                            {
+                                userInfo ? <Link to="/profile">{userInfo.username}</Link>:
+                                // <Link to="/register" className="nav-link">Register</Link> && /*maybe need to change*/
+                                <Link to="/login" className="nav-link">Login</Link>
+                            }
+                        </li>
                     </ul>
-                    </div>
                 </div>
-            </nav> */}
-                <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
-                    <div className="login-bar">
-                        <span className="title">
-                            <Link to="/" className="nav-brand">Game Player Zoon</Link>
-                        </span>
-                    </div>
-                    <div className="A collpase navbar-collapse navi-a">
-                        <ul className="navbar-nav mr-auto">
-                            <li className="navbar-item">
-                            <Link to="/" className="nav-link">Home</Link>
-                            </li>
-                            <li className="navbar-item">
-                            <Link to="/community" className="nav-link">Community</Link>
-                            </li>
-                            <li className="navbar-item">
-                            <Link to="/shopping" className="nav-link">Shopping</Link>
-                            </li>
-                        </ul>    
-                            {localStorage.getItem("token") ? (
-                                <React.Fragment>
-                                    <ul align="right" className="navbar-nav">
-                                        <li className="navbar-item">
-                                        <Link to="/Post" className="nav-link">Post</Link>
-                                        </li>
-                                        <li className="navbar-item">
-                                        <Link to="/edit" className="nav-link">Edit</Link>
-                                        </li>
-                                        <li className="navbar-item">
-                                        <Link to="/" className="nav-link" onClick={(event) => this.logout(event)}>{localStorage.getItem("name")}Logout</Link>
-                                        </li>
-                                    </ul>
-                                </React.Fragment>
-                            ) : (
-                                <React.Fragment>
-                                    {/* <div className="A collpase navbar-collapse"> */}
-                                    <ul align="right" className="navbar-nav">
-                                        <li className="navbar-item">
-                                        <Link to="/register" className="nav-link">Register</Link>
-                                        </li>
-                                        <li className="navbar-item">
-                                        <Link to="/login" className="nav-link">Login</Link>
-                                        </li>
-                                        </ul>
-                                    {/* </div> */}
-                                </React.Fragment>
-                            )}
-                        {/* </ul> */}
-                    </div>
-                </nav>
-            </React.Fragment>
+            </nav>
+            // <React.Fragment>
+            //     <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
+            //         <div className="login-bar">
+            //             <span className="title">
+            //                 <Link to="/" className="nav-brand">Game Player Zoon</Link>
+            //             </span>
+            //         </div>
+            //         <div className="A collpase navbar-collapse navi-a">
+            //             <ul className="navbar-nav mr-auto">
+            //                 <li className="navbar-item">
+            //                 <Link to="/" className="nav-link">Home</Link>
+            //                 </li>
+            //                 <li className="navbar-item">
+            //                 <Link to="/community" className="nav-link">Community</Link>
+            //                 </li>
+            //                 <li className="navbar-item">
+            //                 <Link to="/shopping" className="nav-link">Shopping</Link>
+            //                 </li>
+            //             </ul>    
+            //                 {localStorage.getItem("token") ? (
+            //                     <React.Fragment>
+            //                         <ul align="right" className="navbar-nav">
+            //                             <li className="navbar-item">
+            //                             <Link to="/Post" className="nav-link">Post</Link>
+            //                             </li>
+            //                             <li className="navbar-item">
+            //                             <Link to="/edit" className="nav-link">Edit</Link>
+            //                             </li>
+            //                             <li className="navbar-item">
+            //                             <Link to="/" className="nav-link" onClick={(event) => this.logout(event)}>{localStorage.getItem("name")}Logout</Link>
+            //                             </li>
+            //                         </ul>
+            //                     </React.Fragment>
+            //                 ) : (
+            //                     <React.Fragment>
+                                    // <ul align="right" className="navbar-nav">
+                                    //     <li className="navbar-item login-btn">
+                                    //     {
+                                    //         userInfo ? <Link to="/profile">{userInfo.username}</Link>:
+                                            // <Link to="/register" className="nav-link">Register</Link> && /*maybe need to change*/
+                                    //         <Link to="/login" className="nav-link">Login</Link>
+                                            
+                                    //     }
+                                    //     </li>
+                                    // </ul>
+
+                            //     </React.Fragment>
+                            // )}
+            //         </div>
+            //     </nav>
+            // </React.Fragment>
         );
-    }
 }

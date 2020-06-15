@@ -2,7 +2,9 @@
     font-size: 25px;
     font-weight: bold;
 }
-
+/* .nav-brand{
+    font-size: 2rem;
+} */
 .navbar-nav {
     /* flex-sm-row */
     flex-direction: row;

@@ -31,6 +31,11 @@ const userSchema = new Schema({
     birthday: {
         type: String
     },
+    isAdmin: {
+        type: Boolean, 
+        // require,
+        default: false
+    },
     isDeleted: {
         type: Boolean,
         default: false    //if it would be getted the erro, delete this part 'isDeletd'
@@ -51,15 +56,6 @@ userSchema.methods.generateHash = function(password) {
 userSchema.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
 };
-
-// userSchema.methods.generateHash = function(password_confirmation) {
-//     return bcrypt.hashSync(password_confirmation, bcrypt.genSaltSync(8), null);
-// };
-
-// userSchema.methods.validPassword = function(password_confirmation) {
-//     return bcrypt.compareSync(password_confirmation, this.password_confirmation);
-// };
-
 
 const User = mongoose.model('User', userSchema);
 

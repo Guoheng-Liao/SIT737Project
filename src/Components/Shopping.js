@@ -6,7 +6,6 @@ import { ListProduct } from '../Action/ProductAction';
 
 export default function Shopping(props) {
 
-    // const [products, setProduct] = useState([]);
     const ProductList = useSelector(state => state.ProductList);
     const { products, loading, error } = ProductList;
     const dispatch = useDispatch();
@@ -35,7 +34,7 @@ export default function Shopping(props) {
                         <Link to="/shopping">Game Shop</Link>
                     </div>
                     <div className="header-links">
-                        <Link to="/cart">Cart</Link>
+                        <Link to="/cart"><b>Cart</b></Link>
                     </div>
                 </header>
                 <aside className="sidebar">
@@ -56,11 +55,11 @@ export default function Shopping(props) {
                                 products.map(product => 
                                     <li key={product._id}>
                                         <div className="product">
-                                            <Link to={'/product/' + product._id}>
+                                            <Link to={'/products/' + product._id}>
                                                 <img className="product-image" src={product.image} alt="product"></img>
                                             </Link>
                                             <div className="product-name">
-                                                <Link to={'/product/' + product._id}>{product.name}</Link>
+                                                <Link to={'/products/' + product._id}>{product.name}</Link>
                                             </div>
                                             <div className="product-brand">{product.brand}</div>
                                             <div className="product-price">${product.price.toFixed(2)}</div>
@@ -71,9 +70,6 @@ export default function Shopping(props) {
                     }   
                     </div>
                 </main>
-                <footer className="footer">
-                    All right reserved.
-                </footer>
             </div>
         
     
