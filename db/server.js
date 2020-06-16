@@ -34,3 +34,5 @@ app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 })
 
+require("cf-deployment-tracker-client").track();
+
