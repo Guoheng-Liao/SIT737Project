@@ -56,7 +56,7 @@ export default function RegisterPage(props) {
                         </li>
                         <li className="li-title">
                             Already have an account? 
-                            <Link to={redirect === "/" ? "login" : "login?redirect=" + redirect} className="button text-center button.btn-bg-2">Create New Account</Link>
+                            <Link to={redirect === "/" ? "login" : "login?redirect=" + redirect} className="button text-center button.btn-bg-2">Login</Link>
                         </li>
                     </ul>
                 </form>
