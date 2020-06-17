@@ -11,14 +11,6 @@ export default function NavBar(props) {
         event.preventDefault();
     };
 
-    const checkEditHandler = () =>{
-        props.history.push("/login?redirect=edit");
-    }
-
-    const checkPostHandler = () =>{
-        props.history.push("/login?redirect=post");
-    }
-
     const userLogin = useSelector(state => state.userLogin);
     const {userInfo} = userLogin;
 
@@ -43,7 +35,7 @@ export default function NavBar(props) {
                     </ul>
                     <ul align="right" className="navbar-nav">
                         <li className="navbar-item">
-                            <Link to="/Post" onClick={checkPostHandler} className="nav-link">Post</Link>
+                            <Link to="/Post" className="nav-link">Post</Link>
                         </li>
                         <li className="navbar-item">
                             <Link to="/edit" className="nav-link">Edit</Link>
