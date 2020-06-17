@@ -6,9 +6,6 @@ const isAdmin = require("../util").isAdmin;
 router.route('/').get(async(req, res) => {
     const product = await Product.find({});
     res.send(product);
-    // Product.find()
-    //     .then(products => res.json(products))
-    //     .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route('checkout/:id').get(async(req, res) => {
@@ -45,7 +42,7 @@ router.route('/add').post(isAuth, isAdmin, async(req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/:id').get((req, res) => {
+router.route('/item/:id').get((req, res) => {
     Product.findById(req.params.id)
         .then(product => res.json(product))
         .catch(err => res.status(400).json('Error: ' + err));
@@ -57,7 +54,7 @@ router.route('/:id', isAuth, isAdmin).delete((req,res) => {
         .catch(err => res.status(400).json('Error: '+ err));
 });
 
-router.route('/update/:id', isAuth, isAdmin).put((req, res) => {
+router.route('/update/:id', isAuth, isAdmin).post((req, res) => {
     const productId = req.params.id;
     Product.findById(productId)
         .then(product => {

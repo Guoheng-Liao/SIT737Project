@@ -1,17 +1,15 @@
 import { PRODUCT_LIST_REQUEST, PRODUCT_LIST_SUCCESS, PRODUCT_LIST_FAIL, 
-    PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCCESS, PRODUCT_DETAILS_FAIL, PRODUCT_SAVE_REQUEST, PRODUCT_SAVE_SUCCESS, PRODUCT_SAVE_FAIL, PRODUCT_DELETE_REQUEST, PRODUCT_DELETE_SUCCESS, PRODUCT_DELETE_FAIL,
+    PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCCESS, PRODUCT_DETAILS_FAIL, PRODUCT_SAVE_REQUEST, PRODUCT_SAVE_SUCCESS, PRODUCT_SAVE_FAIL, PRODUCT_DELETE_REQUEST, PRODUCT_DELETE_SUCCESS, PRODUCT_DELETE_FAIL, PRODUCT_DETAILS_2_REQUEST, PRODUCT_DETAILS_2_SUCCESS, PRODUCT_DETAILS_2_FAIL,
      } from "../Constants/ProductConstant"
 import Axios from "axios";
+import axios from 'axios';
 
 const ListProduct = () => async(dispatch) => {
     try{
-
-        dispatch( {type: PRODUCT_LIST_REQUEST} );
-        // const { data } = await Axios.get("/shopping"); http://localhost:5000
+        dispatch({type: PRODUCT_LIST_REQUEST});
         const { data } = await Axios.get("http://localhost:5000/products");
         dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data })
     }catch(error){
-        
         dispatch({ type: PRODUCT_LIST_FAIL, payload: error.message })
     }
 }
@@ -19,8 +17,7 @@ const ListProduct = () => async(dispatch) => {
 const detailsProduct = (productId) => async (dispatch) => {
     try {
         dispatch({type: PRODUCT_DETAILS_REQUEST, payload: productId});
-        // const { data } = await Axios.get("/product/" + productId);
-        const { data } = await Axios.get("http://localhost:5000/products/" + productId);
+        const { data } = await axios.get("http://localhost:5000/products/item/" + productId);
         dispatch({type: PRODUCT_DETAILS_SUCCESS, payload: data });
     } catch (error){
         dispatch({ type: PRODUCT_DETAILS_FAIL, payload: error.message });
@@ -39,7 +36,7 @@ const saveProduct = (product) => async(dispatch, getState) => {
             });
             dispatch({ type: PRODUCT_SAVE_SUCCESS, payload: data });
         }else{
-            const { data } = await Axios.put("http://localhost:5000/products/add/" + product._id, product, {
+            const { data } = await Axios.post("http://localhost:5000/products/update/" + product._id, product, {
                 headers: {
                     'Authorization': 'Bearer ' + userInfo.token
                 }

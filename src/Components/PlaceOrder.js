@@ -110,7 +110,7 @@ export default function PlaceOrder(props){
                         </li>
                         <li>
                             <div>Tax</div>
-                            <div>${taxPrice}</div>
+                            <div>${taxPrice.toFixed(2)}</div>
                         </li>
                         <li>
                             <div>Order Total</div>

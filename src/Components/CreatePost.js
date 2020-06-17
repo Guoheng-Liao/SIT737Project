@@ -21,10 +21,6 @@ export default class CreatePost extends Component {
     }
 
     componentDidMount(){
-        // this.setState({
-        //     users: ['test user'],
-        //     username: 'test user'
-        // })
         Axios.get('http://localhost:5000/users/')
             .then(response => {
                 if(response.data.length > 0)

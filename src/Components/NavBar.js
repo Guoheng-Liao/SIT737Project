@@ -5,6 +5,14 @@ import { useSelector } from 'react-redux';
 
 export default function LoginPage(props) {
 
+
+    const logout = (event) => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("name");
+        window.location.href = "/login"
+        event.preventDefault();
+    };
+
     const userLogin = useSelector(state => state.userLogin);
     const {userInfo} = userLogin;
 
@@ -26,6 +34,17 @@ export default function LoginPage(props) {
                         <li className="navbar-item">
                             <Link to="/shopping" className="nav-link">Shopping</Link>
                         </li>
+                    </ul>
+                    <ul align="right" className="navbar-nav">
+                        <li className="navbar-item">
+                            <Link to="/Post" className="nav-link">Post</Link>
+                        </li>
+                        <li className="navbar-item">
+                            <Link to="/edit" className="nav-link">Edit</Link>
+                        </li>
+                        {/* <li className="navbar-item">
+                            <Link to="/" className="nav-link" onClick={(event) => logout(event)}>{localStorage.getItem("name")}Logout</Link>
+                        </li> */}
                     </ul>
                     <ul align="right" className="navbar-nav">
                         <li className="navbar-item login-btn">

@@ -15,6 +15,7 @@ import Shipping from './Components/Shipping';
 import Payment from './Components/Payment';
 import PlaceOrder from './Components/PlaceOrder';
 import Footer from './Components/Footer';
+import UserEdit from './Components/User-Edit';
 
 
 
@@ -29,9 +30,10 @@ function App(){
           <Route exact={true} path="/" component={HomePage} />
           <Route path="/login" component={LoginPage} />
           <Route path="/register" component={RegisterPage} />
-          <Route exact path="/community" component={Community} />
+          <Route path="/community" component={Community} />
           {/* <PrivateRoute exact path="/blogpage" component={BlogPage} /> example */}
           <Route path="/shopping" component={Shopping} />
+          <Route path="/edit" component={UserEdit} />
           <Route path="/shipping" component={Shipping}/>
           <Route path="/payment" component={Payment}/>
           <Route path="/placeorder" component={PlaceOrder}/>
@@ -43,6 +45,23 @@ function App(){
       </React.Fragment>
       <Footer />
     </Router>
+  );
+}
+
+function PrivateRoute({ component: Component, ...rest }) {
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        localStorage.getItem("token") ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{ pathname: "/login", state: { from: props.location } }}
+          />
+        )
+      }
+    />
   );
 }
 
